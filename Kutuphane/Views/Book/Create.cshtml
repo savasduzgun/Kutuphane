@@ -1,0 +1,48 @@
+﻿@model Kitap
+@{
+    ViewData["Title"] = "Kitap Oluştur";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Kitap Oluştur</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label class="control-label" asp-for="Id"></label>
+                <input class="form-control" asp-for="Id" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="Name"></label>
+                <input class="form-control" asp-for="Name" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="Author"></label>
+                <input class="form-control" asp-for="Author" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="Publisher"></label>
+                <input class="form-control" asp-for="Publisher" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="Tur"></label>
+                <select class="form-control" asp-for="Tur">
+                    <option value="0">Roman</option>
+                    <option value="1">Hikaye</option>
+                    <option value="2">Şiir</option>
+                </select>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Stock" /> @Html.DisplayNameFor(model => model.Stock)
+                </label>
+            </div>
+            <div class="form-group mt-3">
+                <a class="btn btn-secondary" asp-action="Kitaplar">Listeye geri dön</a>
+                <input type="submit" class="btn btn-primary" value="Kaydet"/>
+            </div>
+        </form>
+    </div>
+</div>
+

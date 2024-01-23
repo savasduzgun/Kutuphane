@@ -1,0 +1,77 @@
+﻿@model Kutuphane.Models.Kitap
+
+@{
+    ViewData["Title"] = "KitapDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Kitap Bilgileri</h1>
+<hr />
+<div>
+    <hr />
+    @if (Model == null)
+    {
+        <div class="badge bg-warning">Kitap kaydı bulunamadı</div>
+    }
+    else
+    {@* 
+        <table>
+            <tr>
+                <td>Id</td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td>Adı</td>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <td>Soyadı</td>
+                <td>@Model.Author</td>
+            </tr>
+        </table> *@
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Publisher)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Publisher)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Tur)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Tur)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Stock)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Stock)
+            </dd>
+        </dl>
+    }
+
+</div>
+<div>
+    <a asp-action="Kitaplar">Back to List</a>
+</div>

@@ -1,0 +1,74 @@
+﻿@model List<Kitap>
+
+@{
+    ViewData["Title"] = "Kitaplar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Kitaplar</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Adı
+            </th>
+            <th>
+                Yazar
+            </th>
+            <th>
+                Yayın Evi
+            </th>
+            <th>
+                Tür
+            </th>
+            <th>
+                Stok
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Author
+                </td>
+                <td>
+                    @item.Publisher
+                </td>
+                <td>
+                    @item.Tur
+                </td>
+                <td>
+                    @if (item.Stock)
+                    {
+                        <span class="badge bg-success">Var</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Yok</span>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-outline-primary" asp-controller="Book" asp-action="KitapDetay" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
